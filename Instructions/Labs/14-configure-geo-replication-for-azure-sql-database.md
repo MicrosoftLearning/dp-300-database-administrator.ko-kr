@@ -1,0 +1,102 @@
+---
+lab:
+  title: 랩 14 - Azure SQL Database의 지역 복제 구성
+  module: Plan and implement a high availability and disaster recovery solution
+---
+
+# <a name="configure-geo-replication-for-azure-sql-database"></a>Azure SQL Database의 지역 복제 구성
+
+**예상 소요 시간: 30분**
+
+AdventureWorks 내의 DBA로서 Azure SQL Database의 지역 복제를 사용하도록 설정하고 제대로 작동하는지 확인해야 합니다. 또한 포털을 사용하여 수동으로 다른 지역으로 장애 조치합니다.
+
+## <a name="enable-geo-replication"></a>지역 복제 사용
+
+1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
+
+    ![Azure Portal 로그인 스크린샷](../images/dp-300-module-01-lab-01.png)
+
+1. Azure Portal에서 **sql 데이터베이스**를 검색하여 데이터베이스로 이동합니다.
+
+    ![기존 SQL 데이터베이스 검색 스크린샷](../images/dp-300-module-13-lab-03.png)
+
+1. SQL 데이터베이스 **AdventureWorksLT**를 선택합니다.
+
+    ![AdventureWorks SQL 데이터베이스를 선택하는 스크린샷](../images/dp-300-module-13-lab-04.png)
+
+1. 데이터베이스 블레이드의 **데이터 관리** 섹션에서 **복제본**을 선택합니다.
+
+    ![지역 복제 선택 스크린샷](../images/dp-300-module-14-lab-01.png)
+
+1. **+ 복제본 만들기**를 선택합니다.
+
+    ![지역 복제 페이지 선택을 보여 주는 스크린샷](../images/dp-300-module-14-lab-02.png)
+
+1. **SQL Database 만들기 - 지역 복제본** 페이지의 **서버**에서 **새로 만들기** 링크를 선택합니다.
+
+    ![새 서버 만들기 링크를 보여 주는 스크린샷](../images/dp-300-module-14-lab-03.png)
+
+    >[!NOTE]
+    > 보조 데이터베이스를 호스트할 새 서버를 만들 때 위의 오류 메시지를 무시할 수 있습니다.
+
+1. **SQL Database 서버 만들기** 페이지에서 기본 설정의 고유한 **서버 이름**, 유효한 **서버 관리자 로그인**, 보안 **암호**를 입력합니다. 대상 지역으로 **위치**를 선택한 다음, **확인**을 선택하여 서버를 만듭니다.
+
+    ![SQL Database 서버 만들기 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-04.png)
+
+1. **SQL Database 만들기 - 지역 복제본** 페이지로 돌아가서 **검토 + 만들기**를 선택합니다.
+
+    ![SQL Database 서버 만들기 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-05.png)
+
+1. **만들기**를 선택합니다.
+
+    ![검토 및 만들기 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-06.png)
+
+1. 이제 보조 서버와 데이터베이스가 생성됩니다. 상태를 확인하려면 포털 상단의 알림 아이콘 아래를 봅니다. 
+
+    ![검토 및 만들기 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-07.png)
+
+1. 성공하면 **배포 진행 중**에서 **배포 성공**으로 진행됩니다.
+
+    ![검토 및 만들기 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-08.png)
+
+## <a name="failover-sql-database-to-a-secondary-region"></a>SQL Database를 보조 지역으로 장애 조치(failover)
+
+이제 Azure SQL Database 복제본이 만들어졌으므로 장애 조치(failover)를 수행합니다.
+
+1. SQL 서버 페이지로 이동하여 목록에서 새 서버를 확인합니다. 보조 서버를 선택합니다(다른 서버 이름이 있을 수 있음).
+
+    ![SQL 서버 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-09.png)
+
+1. SQL 서버 블레이드의 **설정** 섹션에서 **SQL 데이터베이스**를 선택합니다.
+
+    ![SQL 데이터베이스 옵션을 보여 주는 스크린샷](../images/dp-300-module-14-lab-10.png)
+
+1. SQL 데이터베이스 기본 블레이드의 **데이터 관리** 섹션에서 **복제본**을 선택합니다.
+
+    ![지역 복제 선택 스크린샷](../images/dp-300-module-14-lab-01.png)
+
+1. 이제 지역 복제 링크가 설정되었습니다.
+
+    ![복제본 옵션을 보여 주는 스크린샷](../images/dp-300-module-14-lab-11.png)
+
+1. 보조 서버의 **...** 메뉴를 선택하고 **강제 장애 조치(failover)** 를 선택합니다.
+
+    ![강제 장애 조치 옵션을 보여 주는 스크린샷](../images/dp-300-module-14-lab-12.png)
+
+    > [!NOTE]
+    > 강제 장애 조치(failover)는 보조 데이터베이스를 주 역할로 전환합니다. 이 작업 중에는 모든 세션의 연결이 끊어집니다.
+
+1. 경고 메시지가 표시되면 **예**를 클릭합니다.
+
+    ![강제 장애 조치(failover) 경고 메시지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-13.png)
+
+1. 주 복제본의 상태는 **보류 중**으로 전환되고 보조 복제본의 상태는 **장애 조치(failover)** 로 전환됩니다. 
+
+    ![강제 장애 조치(failover) 경고 메시지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-14.png)
+
+    > [!NOTE]
+    > 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 완료되면 역할이 전환되어 보조 서버는 새로운 주 서버가 되고 기존 주 서버는 보조 서버가 됩니다.
+
+읽기 가능한 보조 데이터베이스는 주 데이터베이스와 동일한 Azure 지역에 있을 수 있고 더 일반적으로는 다른 지역에 있을 수도 있음을 확인했습니다. 이러한 종류의 읽기 가능한 보조 데이터베이스를 지역 보조 또는 지역 복제본이라고도 합니다.
+
+지금까지 Azure SQL Database의 지역 복제본을 사용하도록 설정하고 포털을 사용하여 다른 지역에 수동으로 장애 조치(failover)하는 방법을 살펴보았습니다.
