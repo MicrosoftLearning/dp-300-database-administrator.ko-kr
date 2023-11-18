@@ -4,13 +4,13 @@ lab:
   module: Plan and implement a high availability and disaster recovery solution
 ---
 
-# <a name="configure-geo-replication-for-azure-sql-database"></a>Azure SQL Database의 지역 복제 구성
+# Azure SQL Database의 지역 복제 구성
 
-**예상 소요 시간: 30분**
+**예상 시간: 30분**
 
 AdventureWorks 내의 DBA로서 Azure SQL Database의 지역 복제를 사용하도록 설정하고 제대로 작동하는지 확인해야 합니다. 또한 포털을 사용하여 수동으로 다른 지역으로 장애 조치합니다.
 
-## <a name="enable-geo-replication"></a>지역 복제 사용
+## 지역 복제 사용
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
 
@@ -47,7 +47,7 @@ AdventureWorks 내의 DBA로서 Azure SQL Database의 지역 복제를 사용하
 
     ![SQL Database 서버 만들기 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-05.png)
 
-1. **만들기**를 선택합니다.
+1. **만들기**를 실행합니다.
 
     ![검토 및 만들기 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-06.png)
 
@@ -59,7 +59,7 @@ AdventureWorks 내의 DBA로서 Azure SQL Database의 지역 복제를 사용하
 
     ![검토 및 만들기 페이지를 보여 주는 스크린샷](../images/dp-300-module-14-lab-08.png)
 
-## <a name="failover-sql-database-to-a-secondary-region"></a>SQL Database를 보조 지역으로 장애 조치(failover)
+## SQL Database를 보조 지역으로 장애 조치(failover)
 
 이제 Azure SQL Database 복제본이 만들어졌으므로 장애 조치(failover)를 수행합니다.
 

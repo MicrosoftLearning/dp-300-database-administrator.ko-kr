@@ -4,15 +4,15 @@ lab:
   module: Plan and Implement Data Platform Resources
 ---
 
-# <a name="provision-a-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server 프로비저닝
+# Azure 가상 머신에서 SQL Server 프로비저닝
 
-**예상 소요 시간: 30분**
+**예상 시간: 30분**
 
-학생은 Azure Portal을 탐색하고 이를 사용하여 설치된 SQL Server 2019에서 Azure VM을 만듭니다. 그런 다음 원격 데스크톱 프로토콜을 통해 가상 머신에 연결합니다.
+학생들은 Azure Portal을 살펴보고 이를 사용하여 SQL Server 2019가 설치된 Azure VM을 만듭니다. 그런 다음 원격 데스크톱 프로토콜을 통해 가상 머신에 연결합니다.
 
-AdventureWorks의 데이터베이스 관리자입니다. 개념 증명에서 사용할 테스트 환경을 만들어야 합니다. 개념 증명은 Azure Virtual Machine의 SQL Server 및 AdventureWorksDW 데이터베이스의 백업을 사용합니다. Virtual Machine을 설정하고 데이터베이스를 복원하고 쿼리하여 사용할 수 있는지 확인해야 합니다.
+AdventureWorks의 데이터베이스 관리자입니다. 개념 증명에서 사용할 테스트 환경을 만들어야 합니다. 개념 증명은 Azure Virtual Machine에서 SQL Server를 사용하고 AdventureWorksDW 데이터베이스의 백업을 사용합니다. Virtual Machine을 설정하고, 데이터베이스를 복원하고, 쿼리하여 사용할 수 있는지 확인해야 합니다.
 
-## <a name="deploy-a-sql-server-on-an-azure-virtual-machine"></a>Azure VM(가상 머신)에서 SQL Server 배포
+## Azure VM(가상 머신)에서 SQL Server 배포
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동하여 Azure 구독과 연결된 Microsoft 계정을 사용하여 로그인합니다.
 
@@ -26,13 +26,13 @@ AdventureWorks의 데이터베이스 관리자입니다. 개념 증명에서 사
 
     ![그림 10](../images/dp-300-module-01-lab-10.png)
 
-1. **SQL 배포 옵션 선택** 블레이드에서 **SQL 가상 머신** 아래에 있는 드롭다운 상자를 클릭합니다. **무료 SQL Server 라이선스: Windows Server 2022의 SQL 2019 Developer** 레이블이 지정된 옵션을 선택합니다. 그런 다음 **만들기**를 선택합니다.
+1. **SQL 배포 옵션 선택** 블레이드에서 **SQL 가상 머신** 아래에 있는 드롭다운 상자를 클릭합니다. **무료 SQL Server 라이선스: Windows Server 2022의 SQL 2019 Developer** 레이블이 지정된 옵션을 선택합니다. 다음으로 **만들기**를 선택합니다.
 
     ![그림 11](../images/dp-300-module-01-lab-11.png)
 
 1. **가상 머신 만들기** 페이지에서 다음 정보를 입력합니다.
 
-    - **구독:** &lt;구독&gt;
+    - **구독**: &lt;사용자의 구독&gt;
     - **리소스 그룹:** &lt;리소스 그룹&gt;
     - **가상 머신 이름:**  azureSQLServerVM
     - **지역:** &lt;사용자 리소스 그룹의 선택한 지역과 동일한 사용자 지역&gt;
@@ -45,7 +45,7 @@ AdventureWorks의 데이터베이스 관리자입니다. 개념 증명에서 사
     - **인바운드 포트 선택:** RDP(3389)
     - **기존 Windows Server 라이선스를 사용하시겠어요?:** 아니요(선택 취소됨)
 
-    나중에 사용할 수 있도록 사용자 이름 및 암호를 적어 둡니다.
+    나중에 사용할 수 있도록 사용자 이름 및 암호를 기록해 둡다.
 
     ![그림 12](../images/dp-300-module-01-lab-12.png)
 
@@ -71,13 +71,13 @@ AdventureWorks의 데이터베이스 관리자입니다. 개념 증명에서 사
 
     ![그림 17](../images/dp-300-module-01-lab-17.png)
 
-    **참고 -** 이 화면에서 SQL Server VM용 스토리지를 구성할 수도 있습니다. 기본적으로 SQL Server Azure VM 템플릿은 데이터에 대한 읽기 캐싱이 있는 프리미엄 디스크 1개와 트랜잭션 로그에 대한 캐싱이 없는 프리미엄 디스크 1개를 만들고 tempdb에 대한 로컬 SSD(Windows의 D:\)를 사용합니다.
+    **참고 -** 이 화면에서 SQL Server VM용 스토리지를 구성할 수도 있습니다. 기본적으로 SQL Server Azure VM 템플릿은 데이터에 대한 읽기 캐싱이 있는 하나의 프리미엄 디스크를 만들고, 트랜잭션 로그에 캐싱하지 않고 하나의 프리미엄 디스크를 만들고, tempdb에 로컬 SSD(D:\ on Windows)를 사용합니다.
 
-1. **검토 + 만들기** 단추를 선택합니다. 그런 다음 **만들기**를 선택합니다.
+1. **검토 + 만들기** 단추를 선택합니다. 다음으로 **만들기**를 선택합니다.
 
     ![그림 18](../images/dp-300-module-01-lab-18.png)
 
-1. 배포 블레이드에서 배포가 완료될 때까지 기다립니다. VM을 배포하는 데 약 5~10분이 소요됩니다. 배포가 완료되면 **리소스로 이동**을 선택합니다.
+1. 배포 블레이드에서 배포가 완료될 때까지 기다립니다. VM을 배포하는 데 약 5-10분이 걸립니다. 배포가 완료되면 **리소스로 이동**을 선택합니다.
 
     **참고:** 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -87,7 +87,7 @@ AdventureWorks의 데이터베이스 관리자입니다. 개념 증명에서 사
 
     ![그림 20](../images/dp-300-module-01-lab-20.png)
 
-## <a name="connect-to-sql-server-on-an-azure-virtual-machine"></a>Azure VM(가상 머신)에서 SQL Server에 연결
+## Azure VM(가상 머신)에서 SQL Server에 연결
 
 1. 가상 머신의 **개요** 페이지에서 **연결** 단추를 선택하고 RDP를 선택합니다.
 
@@ -105,7 +105,7 @@ AdventureWorks의 데이터베이스 관리자입니다. 개념 증명에서 사
 
     ![그림 23](../images/dp-300-module-01-lab-23.png)
 
-1. 가상 머신 프로비전 프로세스 중에 선택한 사용자 이름과 암호를 입력합니다. 그런 다음, **확인**을 선택합니다.
+1. 가상 머신 프로비저닝 프로세스 중에 선택한 사용자 이름 및 암호를 입력합니다. 그런 다음 **확인**을 선택합니다.
 
     ![그림 24](../images/dp-300-module-01-lab-24.png)
 

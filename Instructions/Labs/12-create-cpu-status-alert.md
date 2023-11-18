@@ -4,19 +4,19 @@ lab:
   module: Automate database tasks for Azure SQL
 ---
 
-# <a name="create-a-cpu-status-alert-for-a-sql-server-on-azure"></a>Azure에서 SQL Server의 CPU 상태 경고 만들기
+# Azure에서 SQL Server의 CPU 상태 경고 만들기
 
-**예상 소요 시간: 30분**
+**예상 시간: 30분**
 
 데이터베이스 관리의 일상적인 업무를 자동화하는 데 도움을 주는 선임 데이터 엔지니어로 고용되었습니다. 이 자동화에서는 AdventureWorks용 데이터베이스가 최고 성능으로 계속 작동하고 특정 조건에 따라 경고하는 메서드를 제공하도록 지원합니다.
 
-## <a name="create-an-alert-when-a-cpu-exceeds-an-average-of-80-percent"></a>CPU가 80%의 평균을 초과하는 경우 경고 생성
+## CPU가 80%의 평균을 초과하는 경우 경고 생성
 
 1. Azure Portal 위쪽의 검색 창에서 **SQL**을 입력하고 **SQL 데이터베이스**를 선택합니다. 나열된 **AdventureWorksLT** 데이터베이스 이름을 선택합니다.
 
     ![SQL 데이터베이스를 선택하는 스크린샷](../images/dp-300-module-12-lab-01.png)
 
-1. **AdventureWorksLT** 데이터베이스의 기본 블레이드에서 모니터링 섹션으로 아래로 이동합니다. **경고**를 선택합니다.
+1. **AdventureWorksLT** 데이터베이스의 기본 블레이드에서 모니터링 섹션으로 아래로 이동합니다. 경고를** 선택합니다**.
 
     ![SQL 데이터베이스 개요 페이지에서 경고를 선택하는 스크린샷](../images/dp-300-module-12-lab-02.png)
 
@@ -56,7 +56,7 @@ lab:
 
     ![경고 규칙 만들기를 선택하는 경고 규칙 만들기 페이지의 스크린샷](../images/dp-300-module-12-lab-10.png)
 
-    **참고:** **만들기**를 선택하기 전에 **테스트 작업 그룹(미리 보기)** 을 선택하여 경고를 테스트할 수도 있습니다.
+    **참고:****만들기**를 선택하기 전에 **테스트 작업 그룹(미리 보기)** 을 선택하여 경고를 테스트할 수도 있습니다.
 
 1. 규칙을 생성된 후 입력한 메일 주소로 이와 같은 메일이 전송됩니다.
 

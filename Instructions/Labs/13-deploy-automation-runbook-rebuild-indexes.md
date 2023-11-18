@@ -4,13 +4,13 @@ lab:
   module: Automate database tasks for Azure SQL
 ---
 
-# <a name="deploy-an-automation-runbook-to-automatically-rebuild-indexes"></a>Automation Runbook을 배포하여 자동으로 인덱스 다시 빌드
+# Automation Runbook을 배포하여 자동으로 인덱스 다시 빌드
 
-**예상 소요 시간: 30분**
+**예상 시간: 30분**
 
 데이터베이스 관리의 일상적인 업무를 자동화하는 데 도움을 주는 선임 데이터베이스 관리자로 고용되었습니다. 이 자동화에서는 AdventureWorks용 데이터베이스가 최고 성능으로 계속 작동하고 특정 조건에 따라 경고하는 메서드를 제공하도록 지원합니다. AdventureWorks는 IaaS(Infrastructure as a Service) 및 PaaS(Platform as a Service) 제품 모두에서 SQL Server를 활용합니다.
 
-## <a name="create-an-automation-account"></a>Automation 계정 생성
+## Automation 계정 생성
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
 
@@ -22,20 +22,20 @@ lab:
 
 1. **Automation 계정** 페이지에서 아래 정보를 입력한 다음 **검토 + 만들기**를 선택합니다.
 
-    - **리소스 그룹:** *automateLab*으로 시작
+    - **리소스 그룹:** &lt;리소스 그룹&gt;
     - **이름:** autoAccount
     - **위치:** 기본값 사용
 
     ![Automation 계정 추가 화면의 스크린샷](../images/dp-300-module-13-lab-02.png)
 
-1. 검토 페이지에서 **만들기**를 선택합니다.
+1. 검토 페이지에서 만들기**를 선택합니다**.
 
     ![Automation 계정 추가 화면의 스크린샷](../images/dp-300-module-13-lab-29.png)
 
     > [!NOTE]
     > Automation 계정은 약 3분 내에 만들어야 합니다.
 
-## <a name="connect-to-an-existing-azure-sql-database"></a>기존 Azure SQL Database에 연결
+## 기존 Azure SQL Database에 연결
 
 1. Azure Portal에서 **sql 데이터베이스**를 검색하여 데이터베이스로 이동합니다.
 
@@ -54,7 +54,7 @@ lab:
     - **로그인:** sqladmin
     - **암호:** P@ssw0rd01
 
-1. 다음과 같은 오류 메시지가 나타납니다.
+1. 다음과 같은 오류 메시지가 표시됩니다.
 
     ![로그인 오류 스크린샷](../images/dp-300-module-13-lab-06.png)
 
@@ -85,7 +85,7 @@ lab:
 
     ![새 저장 프로시저 스크린샷.](../images/dp-300-module-13-lab-10.png)
 
-## <a name="configure-automation-account-assets"></a>Automation 계정 자산 구성
+## Automation 계정 자산 구성
 
 다음 단계는 Runbook 만들기를 준비하는 데 필요한 자산을 구성하는 것으로 진행됩니다. 그런 다음 **Automation 계정**을 선택합니다.
 
@@ -126,7 +126,7 @@ lab:
 
     ![계정 자격 증명 추가 스크린샷.](../images/dp-300-module-13-lab-18.png)
 
-## <a name="create-a-powershell-runbook"></a>PowerShell Runbook 생성
+## PowerShell Runbook 생성
 
 1. Azure Portal에서 **sql 데이터베이스**를 검색하여 데이터베이스로 이동합니다.
 
@@ -159,7 +159,7 @@ lab:
 
     ![Runbook 생성 스크린샷.](../images/dp-300-module-13-lab-21.png)
 
-1. Runbook이 만들어지면 아래 Powershell 코드 조각을 복사하여 Runbook 편집기에 붙여넣습니다. 스크립트의 첫 번째 줄에 위의 단계에서 복사한 서버 이름을 붙여넣습니다. **저장**을 선택한 다음 **게시**를 선택합니다.
+1. Runbook이 만들어지면 아래 Powershell 코드 조각을 복사하여 Runbook 편집기에 붙여넣습니다. 스크립트의 첫 번째 줄에 위의 단계에서 복사한 서버 이름을 붙여넣습니다. **저장**을 선택하고 **게시**를 선택합니다.
 
     **참고:** Runbook을 저장하기 전에 코드가 올바르게 복사되었는지 확인하세요.
 
@@ -179,7 +179,7 @@ lab:
 
     ![Runbook 만들기에 성공한 메시지의 스크린샷.](../images/dp-300-module-13-lab-23.png)
 
-## <a name="create-a-schedule-for-a-runbook"></a>Runbook의 일정 생성
+## Runbook의 일정 생성
 
 다음으로 runbook이 정기적으로 실행되도록 예약합니다.
 
@@ -187,7 +187,7 @@ lab:
 
     ![일정 페이지, 일정 추가 선택 스크린샷.](../images/dp-300-module-13-lab-24.png)
 
-1. **Runbook에 일정 연결**을 선택합니다.
+1. Runbook**에 일정 연결을 선택합니다**.
 
     ![Runbook에 일정으로 링크 선택 스크린샷.](../images/dp-300-module-13-lab-25.png)
 

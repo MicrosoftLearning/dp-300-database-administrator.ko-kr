@@ -4,15 +4,15 @@ lab:
   module: Implement a Secure Environment for a Database Service
 ---
 
-# <a name="enable-microsoft-defender-for-sql-and-data-classification"></a>Microsoft Defender for SQL 및 데이터 분류 사용
+# Microsoft Defender for SQL 및 데이터 분류 사용
 
-**예상 소요 시간: 20분**
+**예상 소요 시간:** 20분
 
 학생들은 단원에서 파악한 정보를 사용하여 Azure Portal 및 AdventureWorks 내에서 보안 기능을 구성한 후 구현합니다.
 
-선임 데이터베이스 관리자로 고용되어 데이터베이스 환경의 보안을 보장합니다. 작업은 Azure SQL Database에 중점을 둡니다.
+Senior Database 관리istrator로 고용되어 데이터베이스 환경의 보안을 보장합니다. 작업은 Azure SQL Database에 중점을 둡니다.
 
-## <a name="enable-microsoft-defender-for-sql"></a>Microsoft Defender for SQL 사용
+## Microsoft Defender for SQL 사용
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
 
@@ -40,11 +40,9 @@ lab:
 
     ![구성 옵션을 선택하는 스크린샷](../images/dp-300-module-05-lab-02.png)
 
-1. **서버 설정** 페이지에서 **MICROSOFT DEFENDER FOR SQL**의 설정/해제 스위치가 **켜기**로 설정되어 있고 **스토리지 계정** 이름이 제공되어 있는지 확인합니다. **검사 보고서 전송 대상** 필드에 Azure Portal로 로그인하는 데 사용한 Azure 계정 메일을 입력한 다음 **저장**을 선택합니다.
+1. **서버 설정** 페이지에서 MICROSOFT DEFENDER FOR SQL**의 **토글 스위치가 ON**으로 **설정되어 있는지 확인합니다.
 
-    ![서버 설정 페이지의 스크린샷](../images/dp-300-module-05-lab-03.png)
-
-## <a name="enable-data-classification"></a>데이터 분류 사용
+## 데이터 분류 사용
 
 1. Azure SQL 서버의 주 블레이드에서 **설정** 섹션으로 이동하고 **SQL 데이터베이스**를 선택한 다음 데이터베이스 이름을 선택합니다.
 

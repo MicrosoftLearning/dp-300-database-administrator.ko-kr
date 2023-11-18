@@ -4,15 +4,15 @@ lab:
   module: Plan and Implement Data Platform Resources
 ---
 
-# <a name="provision-an-azure-sql-database"></a>Azure SQL Database 프로비전
+# Azure SQL Database 프로비전
 
 **예상 시간: 40분**
 
-학생들은 가상 네트워크 엔드포인트를 사용하여 Azure SQL Database를 배포하는 데 필요한 기본 리소스를 구성합니다. SQL Database에 대한 연결은 랩 VM의 Azure Data Studio를 사용하여 유효성을 검사합니다.
+학생들은 가상 네트워크 엔드포인트를 사용하여 Azure SQL Database를 배포하는 데 필요한 기본 리소스를 구성합니다. SQL Database에 대한 커넥트 작업은 랩 VM에서 Azure Data Studio를 사용하여 유효성을 검사합니다.
 
-AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 단순화하기 위해 가상 네트워크 엔드포인트를 포함하는 새 SQL Database를 설정합니다. Azure Data Studio는 데이터 쿼리 및 결과 보존을 위해 SQL Notebook의 사용을 평가하는 데 사용됩니다.
+AdventureWorks의 데이터베이스 관리자는 배포 보안을 강화하고 간소화하기 위해 Virtual Network 엔드포인트를 포함하여 새 SQL Database를 설정합니다. Azure Data Studio는 데이터 쿼리 및 결과 보존을 위해 SQL Notebook의 사용을 평가하는 데 사용됩니다.
 
-## <a name="navigate-on-azure-portal"></a>Azure Portal에서 탐색
+## Azure Portal에서 탐색
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
 
@@ -28,40 +28,30 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
 
     ![그림 1](../images/dp-300-module-02-lab-46.png)
 
-## <a name="create-a-virtual-network"></a>Virtual Network 만들기
+## Virtual Network 만들기
 
 1. Azure Portal 홈페이지에서 왼쪽 메뉴를 선택합니다.  
 
     ![그림 2](../images/dp-300-module-02-lab-01_1.png)
 
-1. 탐색 창에서 **가상 네트워크**를 클릭합니다.  
+1. 왼쪽 탐색 창에서 Virtual Networks를 클릭합니다 **.**  
 
-    ![그림 3](../images/dp-300-module-02-lab-04.png)
+1. +만들기를 클릭하여 **Virtual Network** 만들기 페이지를 엽니다**.** **기본** 탭에서 다음 작업을 완료합니다.
 
-1. **+ 만들기**를 클릭하여 **가상 네트워크 만들기** 페이지를 엽니다. **기본** 탭에서 다음 작업을 완료합니다.
-
-    - **구독:** &lt;구독&gt;
+    - **구독**: &lt;사용자의 구독&gt;
     - **리소스 그룹:** *contoso-rg*로 시작
     - **이름:** lab02-vnet
     - **지역:** 리소스 그룹이 만들어진 지역과 동일한 지역 선택
 
-    ![그림 2](../images/dp-300-module-02-lab-05.png)
+1. 검토 + 만들기를 클릭하고 **새 가상 네트워크에 대한 설정을 검토한 다음 만들기**를 클릭합니다**.**
 
-1. **다음: IP 주소**를 클릭합니다.  
+1. 만든 가상 네트워크로 이동하여 Azure SQL 데이터베이스 엔드포인트에 대한 가상 네트워크의 IP 범위를 구성하고 설정 창에서 **서브넷**을 클릭합니다**.**
 
-    ![그림 3](../images/dp-300-module-02-lab-06.png)
+1. **기본** 서브넷 링크를 클릭합니다. **표시되는 서브넷 주소 범위**는 다를 수 있습니다.
 
-1. 다음과 같이 Azure SQL 데이터베이스 엔드포인트의 가상 네트워크 IP 범위를 구성합니다.
+1. 오른쪽의 **서브넷 편집** 창에서 **서비스** 드롭다운을 펼치고 **Microsoft.Sql**을 선택합니다. **저장**을 선택합니다.
 
-    - **IP 주소** 탭에서 IPv4 주소의 기본값을 그대로 둡니다.
-    - **기본** 서브넷 링크를 클릭합니다. 실제로 표시되는 서브넷 주소 범위는 다를 수도 있습니다.
-
-        ![그림 4](../images/dp-300-module-02-lab-07.png)
-
-    - 오른쪽의 **서브넷 편집** 창에서 **서비스** 드롭다운을 펼치고 **Microsoft.Sql**을 선택합니다. **저장**을 선택합니다.
-    - **검토 + 만들기** 단추를 클릭하고 새 가상 네트워크의 설정을 검토한 다음, **만들기**를 클릭합니다.
-
-## <a name="provision-an-azure-sql-database"></a>Azure SQL Database 프로비전
+## Azure SQL Database 프로비전
 
 1. Azure Portal의 맨 위에 있는 검색 상자에서 “SQL 데이터베이스”를 검색한 다음, 옵션 목록에서 **SQL 데이터베이스**를 클릭합니다.
 
@@ -73,7 +63,7 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
 
 1. **SQL Database 만들기** 페이지의 **기본** 탭에서 다음 옵션을 선택하고 **다음: 네트워킹**을 클릭합니다.
 
-    - **구독:** &lt;구독&gt;
+    - **구독**: &lt;사용자의 구독&gt;
     - **리소스 그룹:** *contoso-rg*로 시작
     - **데이터베이스 이름:** AdventureWorksLT
     - **서버:** **새 링크 만들기**를 클릭합니다. **SQL Database 서버 만들기** 페이지가 열립니다. 다음과 같은 서버 세부 정보를 제공합니다.
@@ -107,7 +97,7 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
 
 1. 다음과 같이 **프라이빗 엔드포인트 만들기** 오른쪽 창을 완료합니다.
 
-    - **구독:** &lt;구독&gt;
+    - **구독**: &lt;사용자의 구독&gt;
     - **리소스 그룹:** *contoso-rg*로 시작
     - **위치:** &lt;사용자 리소스 그룹의 선택한 지역과 동일한 사용자 지역, 동일하지 않으면 실패할 수 있음&gt;
     - **이름:** DP-300-SQL-Endpoint
@@ -136,7 +126,7 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
 
 1. 배포가 완료되면 **리소스로 이동**을 클릭합니다.
 
-## <a name="enable-access-to-an-azure-sql-database"></a>Azure SQL Database에 대한 액세스 사용
+## Azure SQL Database에 대한 액세스 사용
 
 1. **SQL 데이터베이스** 페이지에서 **개요** 섹션을 선택한 다음, 상단 섹션에서 서버 이름의 링크를 선택합니다.
 
@@ -150,7 +140,7 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
 
     ![그림 15](../images/dp-300-module-02-lab-21.png)
 
-## <a name="connect-to-an-azure-sql-database-in-azure-data-studio"></a>Azure Data Studio의 Azure SQL Database에 연결
+## Azure Data Studio의 Azure SQL Database에 연결
 
 1. 랩 가상 머신에서 Azure Data Studio를 실행합니다.
 
@@ -170,7 +160,7 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
     - 사용자 이름: **dp300admin**
     - 암호: **dp300P@ssword!**
     - 데이터베이스 드롭다운을 펼쳐 **AdventureWorksLT**를 선택합니다. 
-        - **참고:** 클라이언트 IP가 이 서버에 액세스할 수 있도록 허용하는 방화벽 규칙을 추가하라는 메시지가 표시될 수 있습니다. 방화벽 규칙을 추가하라는 메시지가 표시되면 **계정 추가**를 클릭하고 Azure 계정에 로그인합니다. **새 방화벽 규칙 만들기** 화면에서 **확인**을 클릭합니다.
+        - **참고:** 이 서버에 대한 클라이언트 IP 액세스를 허용하는 방화벽 규칙을 추가하라는 메시지가 표시될 수 있습니다. 방화벽 규칙을 추가하라는 메시지가 표시되면 계정** 추가를 클릭하고 **Azure 계정에 로그인합니다. **새 방화벽 규칙 만들기** 화면에서 **확인**을 클릭합니다.
 
         ![그림 18](../images/dp-300-module-02-lab-26.png)
 
@@ -178,7 +168,7 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
 
         ![그림 18](../images/dp-300-module-02-lab-47.png)
 
-    다시 연결 사이드바에서 다음 연결 세부 정보를 계속 작성합니다.  
+    커넥트 사이드바로 돌아가서 연결 세부 정보를 계속 작성합니다.  
 
     - 서버 그룹은 **&lt;기본값&gt;** 으로 남아 있습니다.
     - 원하는 경우 이름(선택 사항)을 데이터베이스의 식별 이름으로 채울 수 있습니다.
@@ -190,7 +180,7 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
 
     ![그림 20](../images/dp-300-module-02-lab-28.png)
 
-## <a name="query-an-azure-sql-database-with-a-sql-notebook"></a>SQL Notebook을 사용하여 Azure SQL Database 쿼리
+## SQL Notebook을 사용하여 Azure SQL Database 쿼리
 
 1. 이 랩의 AdventureWorksLT 데이터베이스에 연결된 Azure Data Studio에서 **새 Notebook** 단추를 클릭합니다.
 
@@ -200,7 +190,7 @@ AdventureWorks의 데이터베이스 관리자로서 배포 보안을 늘리고 
 
     ![그림 22](../images/dp-300-module-02-lab-30.png)
 
-**참고:** Notebook에서 쿼리 또는 결과 세트를 설명하는 일반 텍스트를 포함할 수 있습니다.
+**참고:** Notebook 내에서 일반 텍스트를 포함하여 쿼리 또는 결과 집합을 설명할 수 있습니다.
 
 1. **Top Ten Customers by Order SubTotal** 텍스트를 입력하고 원하는 경우 굵게 표시합니다.
 
@@ -251,6 +241,6 @@ ORDER BY [OrderedQuantity] DESC
 
 1. Azure Data Studio 내에서 파일 메뉴(다른 이름으로 저장 또는 저장)의 Notebook을 **C:\Labfiles\Deploy Azure SQL Database** 경로에 저장합니다(폴더 구조가 없는 경우 새로 만들기). 파일 확장명이 **.ipynb**인지 확인합니다.
 
-1. Azure Data Studio 내부에서 Notebook 탭을 닫습니다. 파일 메뉴에서 파일 열기를 선택하고 방금 저장한 Notebook을 엽니다. 쿼리 결과가 Notebook의 쿼리와 함께 저장되었는지 확인합니다.
+1. Azure Data Studio 내부에서 Notebook의 탭을 닫습니다. 파일 메뉴에서 파일 열기를 선택하고 방금 저장한 전자 필기장을 엽니다. 쿼리 결과가 Notebook의 쿼리와 함께 저장되었는지 확인합니다.
 
 이 연습에서는 Virtual Network Endpoint를 사용하여 Azure SQL Database를 배포하는 방법을 알아보았습니다. 또한 SQL Server Management Studio를 사용하여 만든 SQL Database에 연결할 수 있었습니다.

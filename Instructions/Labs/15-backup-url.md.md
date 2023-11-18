@@ -4,15 +4,15 @@ lab:
   module: Plan and implement a high availability and disaster recovery solution
 ---
 
-# <a name="backup-to-url"></a>URL로 백업
+# URL로 백업
 
-**예상 소요 시간: 30분**
+**예상 시간: 30분**
 
 AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사용자 오류가 발생한 후 Azure Blob 스토리지에서 복원해야 합니다.
 
-## <a name="restore-a-database"></a>데이터베이스 복원
+## 데이터베이스 복원
 
-1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak** 에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\HADR** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
+1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak**에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\HADR** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
 
     ![그림 03](../images/dp-300-module-15-lab-00.png)
 
@@ -46,7 +46,7 @@ AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사�
 
     ![그림 03](../images/dp-300-module-07-lab-05.png)
 
-## <a name="configure-backup-to-url"></a>URL에 백업 구성
+## URL에 백업 구성
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
 
@@ -77,7 +77,7 @@ AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사�
 1. Cloud Shell에서 다음 명령을 실행하여 CLI에서 새 스토리지 계정을 생성합니다. 위에서 적어 둔 **contoso-rg**로 시작하는 리소스 그룹 이름을 사용합니다.
 
     > [!NOTE]
-    > 리소스 그룹 이름( **-g** 매개 변수)을 변경하고 고유한 스토리지 계정 이름( **-n** 매개 변수)을 제공합니다.
+    > 리소스 그룹 이름(**-g** 매개 변수)을 변경하고 고유한 스토리지 계정 이름(**-n** 매개 변수)을 제공합니다.
 
     ```bash
     az storage account create -n "dp300backupstorage1234" -g "contoso-rglod23149951" --kind StorageV2 -l eastus2
@@ -127,7 +127,7 @@ AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사�
 
     ![공유 액세스 서명 키 스크린샷](../images/dp-300-module-15-lab-09.png)
 
-## <a name="create-credential"></a>자격 증명 만들기
+## 자격 증명 만들기
 
 이제 기능이 구성되었으므로 Azure Storage 계정에서 백업 파일을 Blob으로 생성할 수 있습니다.
 
@@ -167,7 +167,7 @@ AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사�
     DROP CREDENTIAL [https://<storage_account_name>.blob.core.windows.net/backups]  
     ```
 
-## <a name="backup-to-url"></a>URL로 백업
+## URL로 백업
 
 1. Transact-SQL로 다음 명령을 사용하여 **AdventureWorks2017** 데이터베이스를 Azure에 백업합니다.
 
@@ -187,7 +187,7 @@ AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사�
 
     오류가 발생하면 자격 증명을 만드는 동안 잘못 입력한 것이 없는지, 모두 성공적으로 만들어졌는지 확인합니다.
 
-## <a name="validate-the-backup-through-azure-cli"></a>Azure CLI를 통해 백업 유효성 검사
+## Azure CLI를 통해 백업 유효성 검사
 
 파일이 실제로 Azure에 있는지 확인하려면 Storage Explorer(미리 보기) 또는 Azure Cloud Shell을 사용합니다.
 
@@ -199,13 +199,13 @@ AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사�
     az storage blob list -c "backups" --account-name "dp300backupstorage1234" --account-key "storage_key" --output table
     ```
 
-    이전 명령에서 사용한 것과 동일한 고유한 스토리지 계정 이름( **--account-name** 뒤) 및 계정 키( **--account-key** 뒤)를 사용해야 합니다.
+    이전 명령에서 사용한 것과 동일한 고유한 스토리지 계정 이름(**--account-name** 뒤) 및 계정 키(**--account-key** 뒤)를 사용해야 합니다.
 
     ![컨테이너의 백업 스크린샷](../images/dp-300-module-15-lab-19.png)
 
     백업 파일이 성공적으로 생성되었는지 확인할 수 있습니다.
 
-## <a name="validate-the-backup-through-storage-explorer"></a>Storage Explorer를 통해 백업 유효성 검사
+## Storage Explorer를 통해 백업 유효성 검사
 
 1. Storage Explorer(미리 보기)를 사용하려면 Azure Portal의 홈페이지에서 **스토리지 계정**을 선택합니다.
 
@@ -225,7 +225,7 @@ AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사�
 
     ![스토리지 브라우저의 백업 파일을 보여 주는 스크린샷](../images/dp-300-module-15-lab-14.png)
 
-## <a name="restore-from-url"></a>URL에서 복원
+## URL에서 복원
 
 이 작업은 Azure Blob 스토리지에서 데이터베이스를 복원하는 방법을 보여 줍니다.
 

@@ -4,19 +4,19 @@ lab:
   module: Optimize query performance in Azure SQL
 ---
 
-# <a name="identify-database-design-issues"></a>데이터베이스 디자인 문제 식별
+# 데이터베이스 디자인 문제 식별
 
-**예상 시간: 15분**
+**예상 소요 시간:** 15분
 
-학생들은 단원에서 파악한 정보를 사용하여 AdventureWorks 내에서 진행되는 디지털 혁신 프로젝트의 결과물을 확인합니다. Azure Portal과 다른 도구를 살펴보며, 학생은 기본 도구를 활용하여 성능 관련 문제를 식별하고 해결하는 방법을 결정합니다. 마지막으로 학생들은 정규화, 데이터 유형 선택, 인덱스 디자인 문제의 데이터베이스 디자인을 평가할 수 있습니다.
+학생들은 수업에서 얻은 정보를 가져와 AdventureWorks 내에서 디지털 변환 프로젝트에 대한 결과물을 범위로 지정합니다. 학생들은 Azure Portal 및 기타 도구를 검토하여 네이티브 도구를 활용하여 성능 관련 문제를 식별하고 해결하는 방법을 결정합니다. 마지막으로 학생들은 정규화, 데이터 유형 선택, 인덱스 디자인 문제의 데이터베이스 디자인을 평가할 수 있습니다.
 
-데이터베이스 관리자는 성능 관련 문제를 식별하고 발견된 문제를 해결하는 실행 가능한 솔루션을 제공하도록 고용됩니다. AdventureWorks는 10년 이상 소비자 및 유통업체에 자전거와 자전거 부품을 직접 판매해 왔습니다. 쿼리 성능 문제를 식별하고 이 모듈에서 배운 기술을 사용하여 문제를 해결하는 작업을 수행해야 합니다.
+데이터베이스 관리자는 성능 관련 문제를 식별하고 발견된 문제를 해결하는 실행 가능한 솔루션을 제공하도록 고용됩니다. AdventureWorks는 10년 이상 소비자와 유통업체에 직접 자전거와 자전거 부품을 판매해 왔습니다. 쿼리 성능 문제를 식별하고 이 모듈에서 배운 기술을 사용하여 문제를 해결하는 작업을 수행해야 합니다.
 
 **참고:** 이 연습을 진행할 때는 T-SQL 코드를 복사하여 붙여넣어야 합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
-## <a name="restore-a-database"></a>데이터베이스 복원
+## 데이터베이스 복원
 
-1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak** 에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
+1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak**에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
 
     ![그림 03](../images/dp-300-module-07-lab-03.png)
 
@@ -50,7 +50,7 @@ lab:
 
     ![그림 03](../images/dp-300-module-07-lab-05.png)
 
-## <a name="examine-the-query-and-identify-the-problem"></a>쿼리 검사 및 문제 파악
+## 쿼리 검사 및 문제 파악
 
 1. **새 쿼리**를 선택합니다. 다음 T-SQL 코드를 복사하여 쿼리 창에 붙여넣습니다. 이 쿼리를 실행하려면 **실행**을 선택합니다.
 
@@ -71,7 +71,7 @@ lab:
 
     ![그림 02](../images/dp-300-module-09-lab-02.png)
 
-## <a name="identify-ways-to-fix-the-warning-message"></a>경고 메시지 해결 방법 파악
+## 경고 메시지 해결 방법 파악
 
 *[HumanResources].[Employee]* 테이블 구조는 다음 DDL(데이터 정의 언어) 문에 표시됩니다. 이 DDL에 대해 이전 SQL 쿼리에서 사용된 필드를 해당 형식에 유의하여 검토합니다.
 
@@ -113,7 +113,7 @@ CREATE TABLE [HumanResources].[Employee](
 
 암시적 변환 경고를 수정하기 위해 구현할 수 있는 두 가지 방법이 있습니다. 다음 단계에서 각 항목을 조사할 것입니다.
 
-### <a name="change-the-code"></a>코드 변경
+### 코드 변경
 
 1. 암시적 변환을 해결하기 위해 코드를 어떻게 변환하시겠어요? 코드를 변경하고 쿼리를 다시 실행합니다.
 
@@ -133,7 +133,7 @@ CREATE TABLE [HumanResources].[Employee](
 
     **참고:** 이제 경고 메시지가 사라지고 쿼리 계획이 개선되었습니다. *NationalIDNumber* 열과 비교되는 값이 테이블의 열 데이터 형식과 일치하도록 `WHERE` 절을 변경하면 최적화 프로그램에서 암시적 변환을 제거할 수 있습니다.
 
-### <a name="change-the-data-type"></a>데이터 형식 변경
+### 데이터 형식 변경
 
 1. 테이블 구조를 변경하여 암시적 변환 경고를 수정할 수도 있습니다.
 
@@ -147,7 +147,7 @@ CREATE TABLE [HumanResources].[Employee](
 
     ![그림 04](../images/dp-300-module-09-lab-04.png)
 
-    *NationalIDNumber* 열은 이미 기존 비클러스터형 인덱스의 일부이므로 데이터 형식을 변경하려면 인덱스를 다시 작성하거나 다시 만들어야 합니다. **이로 인해 프로덕션의 가동 중지 시간이 길어질 수 있습니다. 이것은 디자인에서 적절한 데이터 형식을 선택하는 것이 중요하다는 점을 잘 보여 줍니다.**
+    *NationalIDNumber* 열은 이미 기존 비클러스터형 인덱스의 일부이므로 데이터 형식을 변경하려면 인덱스를 다시 작성하거나 다시 만들어야 합니다. **이로 인해 프로덕션에서 가동 중지 시간이 길어질 수 있으며, 이는 디자인에서 올바른 데이터 형식을 선택하는 것의 중요성을 강조합니다.**
 
 1. 이 문제를 해결하려면 아래 코드를 복사하여 쿼리 창에 붙여넣고 **실행**을 선택하여 코드를 실행합니다.
 

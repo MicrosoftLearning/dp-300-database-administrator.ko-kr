@@ -4,9 +4,9 @@ lab:
   module: Implement a Secure Environment for a Database Service
 ---
 
-# <a name="configure-database-authentication-and-authorization"></a>데이터베이스 인증 및 권한 부여 구성
+# 데이터베이스 인증 및 권한 부여 구성
 
-**예상 소요 시간: 20분**
+**예상 소요 시간:** 20분
 
 학생들은 단원에서 파악한 정보를 사용하여 Azure Portal 및 *AdventureWorks* 내에서 보안 기능을 구성한 후 구현합니다.
 
@@ -14,7 +14,7 @@ lab:
 
 **참고:** 이 연습을 진행할 때는 T-SQL 코드를 복사하여 붙여넣어야 합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
-## <a name="authorize-access-to-azure-sql-database-with-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure SQL Database에 대한 액세스 권한 부여
+## Azure Active Directory를 사용하여 Azure SQL Database에 대한 액세스 권한 부여
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
 
@@ -42,7 +42,7 @@ lab:
 
     ![서버 이름을 복사할 위치를 보여 주는 스크린샷](../images/dp-300-module-03-lab-05.png)
 
-1. SQL Server Management Studio를 열고 **연결********데이터베이스 엔진**을 선택합니다. **서버 이름**에서 서버 이름을 붙여넣습니다. 인증 형식을 **Azure Active Directory 유니버설(MFA 포함)** 로 변경합니다.
+1. SQL Server Management Studio를 열고 **연결** > **데이터베이스 엔진**을 선택합니다. **서버 이름**에서 서버 이름을 붙여넣습니다. 인증 형식을 **Azure Active Directory 유니버설(MFA 포함)** 로 변경합니다.
 
     ![서버에 연결 대화 상자 스크린샷](../images/dp-300-module-03-lab-06.png)
 
@@ -54,7 +54,7 @@ lab:
 > Azure SQL 데이터베이스에 처음 로그인할 때 클라이언트 IP 주소를 방화벽에 추가해야 합니다. 이 작업은 SQL Server Management Studio에서 자동으로 수행할 수 있습니다. **리소스** 탭에 있는 Azure Portal **암호**를 사용하고 **로그인**을 선택한 다음, Azure 자격 증명을 선택하고 **확인**을 선택합니다.
 > ![클라이언트 IP 주소 추가 스크린샷](../images/dp-300-module-03-lab-07.png)
 
-## <a name="manage-access-to-database-objects"></a>데이터베이스 개체에 대한 액세스 관리
+## 데이터베이스 개체에 대한 액세스 관리
 
 이 작업에서는 데이터베이스 및 해당 개체에 대한 액세스를 관리합니다. 먼저 *AdventureWorksLT* 데이터베이스에서 두 명의 사용자를 생성합니다.
 
@@ -104,7 +104,7 @@ lab:
     GO
     ```
 
-    `EXECUTE AS USER` 구문을 사용하여 보안을 테스트합니다. 이렇게 하면 데이터베이스 엔진이 사용자 컨텍스트에서 쿼리를 실행할 수 있습니다.
+    그런 다음 구 `EXECUTE AS USER` 문을 사용하여 보안을 테스트합니다. 이렇게 하면 데이터베이스 엔진이 사용자 컨텍스트에서 쿼리를 실행할 수 있습니다.
 
 1. 다음 T-SQL을 실행합니다.
 
