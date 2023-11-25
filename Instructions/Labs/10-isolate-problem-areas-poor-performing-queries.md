@@ -4,9 +4,9 @@ lab:
   module: Optimize query performance in Azure SQL
 ---
 
-# <a name="isolate-problem-areas-in-poorly-performing-queries-in-a-sql-database"></a>SQL Database의 성능이 저조한 쿼리에서 문제 영역 격리
+# SQL Database의 성능이 저조한 쿼리에서 문제 영역 격리
 
-**예상 소요 시간: 30분**
+**예상 시간: 30분**
 
 사용자가 *AdventureWorks2017* 데이터베이스를 쿼리하는 경우 발생하고 있는 성능 문제를 해결할 선임 데이터베이스 관리자로 고용되었습니다. 쿼리 성능 문제를 식별하고 이 모듈에서 배운 기술을 사용하여 문제를 해결하는 작업을 수행해야 합니다.
 
@@ -14,9 +14,9 @@ lab:
 
 **참고:** 이 연습을 진행할 때는 T-SQL 코드를 복사하여 붙여넣어야 합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
-## <a name="restore-a-database"></a>데이터베이스 복원
+## 데이터베이스 복원
 
-1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak** 에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
+1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak**에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
 
     ![그림 03](../images/dp-300-module-07-lab-03.png)
 
@@ -50,7 +50,7 @@ lab:
 
     ![그림 03](../images/dp-300-module-07-lab-05.png)
 
-## <a name="generate-actual-execution-plan"></a>실제 실행 계획 생성
+## 실제 실행 계획 생성
 
 SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여러 가지가 있습니다.
 
@@ -88,11 +88,11 @@ SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여�
 
     쿼리 최적화 프로그램은 필요한 레코드를 가져오는 데 적합한 인덱스를 찾을 수 있었습니다.
 
-## <a name="resolve-a-suboptimal-query-plan"></a>만족스럽지 못한 쿼리 계획 해결
+## 만족스럽지 못한 쿼리 계획 해결
 
 1. 아래 코드를 복사하여 새 쿼리 창에 붙여넣습니다.
 
-    쿼리를 실행하기 전에 아래 표시된 대로 **실제 실행 계획 포함** 아이콘을 선택하거나 <kbd>CTRL</kbd>****<kbd>M</kbd>을 누릅니다. **실행**을 선택하거나 <kbd>F5</kbd> 키를 눌러 쿼리를 실행합니다. 메시지 탭의 실행 계획 및 논리 읽기를 기록해 둡니다.
+    쿼리를 실행하기 전에 아래 표시된 대로 **실제 실행 계획 포함** 아이콘을 선택하거나 <kbd>CTRL</kbd>+<kbd>M</kbd>을 누릅니다. **실행**을 선택하거나 <kbd>F5</kbd> 키를 눌러 쿼리를 실행합니다. 메시지 탭의 실행 계획 및 논리 읽기를 기록해 둡니다.
 
     ```sql
     SET STATISTICS IO, TIME ON;
@@ -135,7 +135,7 @@ SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여�
 
     ![향상된 실행 계획을 보여 주는 스크린샷](../images/dp-300-module-10-lab-05.png)
 
-## <a name="use-query-store-to-detect-and-handle-regression"></a>쿼리 저장소를 사용하여 회귀 감지 및 처리
+## 쿼리 저장소를 사용하여 회귀 감지 및 처리
 
 다음으로 워크로드를 실행하여 쿼리 저장소의 쿼리 통계를 생성하고, **상위 리소스 소비 쿼리** 보고서를 검사하여 성능 저하를 식별하고, 더 나은 실행 계획을 적용하는 방법을 확인합니다.
 
@@ -159,11 +159,11 @@ SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여�
 
     호환성 수준을 변경하는 것은 데이터베이스를 이전으로 되돌리는 것과 같습니다. SQL Server에서 사용할 수 있는 기능을 SQL Server 2008에서 사용할 수 있는 기능으로 제한합니다.
 
-1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/CreateRandomWorkloadGenerator.sql** 에 있는 T-SQL 스크립트를 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다.
+1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/CreateRandomWorkloadGenerator.sql**에 있는 T-SQL 스크립트를 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다.
 
-1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/ExecuteRandomWorkload.sql** 에 있는 T-SQL 스크립트를 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다.
+1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/ExecuteRandomWorkload.sql**에 있는 T-SQL 스크립트를 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다.
 
-1. SQL Server Management Studio에서 **파일********열기********파일** 메뉴를 선택합니다.
+1. SQL Server Management Studio에서 **파일** > **열기** > **파일** 메뉴를 선택합니다.
 
 1. **C:\LabFiles\Monitor and optimize\CreateRandomWorkloadGenerator.sql** 파일로 이동합니다.
 
@@ -187,7 +187,7 @@ SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여�
 
 1. **ExecuteRandomWorkload.sql** 파일에서 쿼리 탭으로 돌아가서 다시 실행합니다.
 
-## <a name="examine-top-resource-consuming-queries-report"></a>리소스를 가장 많이 사용하는 쿼리 보고서 조사
+## 리소스를 가장 많이 사용하는 쿼리 보고서 조사
 
 1. 쿼리 저장소 노드를 보려면 SQL Server Management Studio에서 AdventureWorks2017 데이터베이스를 새로 고쳐야 합니다. 데이터베이스 이름을 마우스 오른쪽 단추로 클릭하고 **새로 고침**을 선택합니다. 그러면 데이터베이스에 쿼리 저장소 노드가 표시됩니다.
 
@@ -209,9 +209,9 @@ SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여�
 
     ![기간이 가장 긴 쿼리](../images/dp-300-module-10-lab-10.png)
 
-    이렇게 하면 쿼리 저장소에서 가장 기간이 긴 쿼리에 대한 쿼리 및 계획 요약이 표시됩니다.
+    그러면 쿼리 저장소에서 가장 긴 기간 쿼리에 대한 쿼리 및 계획 요약이 표시됩니다.
 
-## <a name="force-a-better-execution-plan"></a>더 나은 실행 계획 강제 적용
+## 더 나은 실행 계획 강제 적용
 
 1. 아래와 같이 보고서의 계획 요약 부분으로 이동합니다. 서로 기간이 상당히 다른 두 실행 계획이 있음을 알 수 있습니다.
 
@@ -227,7 +227,7 @@ SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여�
 
     쿼리 최적화 프로그램이 사용할 실행 계획을 잘못 선택하는 경우가 있습니다. 이 경우 성능을 향상시킬 것으로 확신할 때 SQL Server에서 사용자가 원하는 계획을 사용하도록 강제할 수 있습니다.
 
-## <a name="use-query-hints-to-impact-performance"></a>쿼리 힌트를 사용하여 성능에 영향을 미칩니다.
+## 쿼리 힌트를 사용하여 성능에 영향을 미칩니다.
 
 그런 다음 워크로드를 실행하고 매개 변수를 사용하도록 쿼리를 변경한 다음, 쿼리에 쿼리 힌트를 적용하여 다시 실행합니다.
 
@@ -271,7 +271,7 @@ SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여�
 
 이 쿼리에서는 `WHERE` 절에 상수를 사용하며 최적화 프로그램은 각 쿼리를 고유하게 표시하고 매번 다른 실행 계획을 생성합니다.
 
-## <a name="change-the-query-to-use-a-variable-and-use-a-query-hint"></a>변수를 사용하고 쿼리 힌트를 사용하도록 쿼리 변경
+## 변수를 사용하고 쿼리 힌트를 사용하도록 쿼리 변경
 
 1. SalesPersonID의 변수 값을 사용하도록 쿼리를 변경합니다.
 
@@ -314,6 +314,6 @@ SQL Server Management Studio에서 실행 계획을 생성하는 방법은 여�
 
     쿼리 최적화 프로그램에서 더 효율적인 실행 계획을 선택할 수 있습니다. `RECOMPILE` 옵션을 사용하면 쿼리 컴파일러가 변수를 해당 값으로 바꿉니다.
 
-    통계를 비교하면 메시지 탭에서 쿼리 힌트가 없는 쿼리의 경우 논리적 읽기 간의 차이가 **68%** (689 대 409) 더 많다는 것을 알 수 있습니다.
+    통계를 비교하면 메시지 탭에서 쿼리 힌트가 없는 쿼리의 경우 논리적 읽기 간의 차이가 **68%**(689 대 409) 더 많다는 것을 알 수 있습니다.
 
 이 연습에서는 쿼리 문제를 식별하는 방법과 쿼리 계획을 개선하기 위해 문제를 해결하는 방법을 알아보았습니다.

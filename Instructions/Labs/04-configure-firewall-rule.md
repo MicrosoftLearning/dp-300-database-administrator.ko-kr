@@ -4,9 +4,9 @@ lab:
   module: Implement a Secure Environment for a Database Service
 ---
 
-# <a name="implement-a-secure-environment"></a>안전한 환경 구현
+# 보안 환경 구현
 
-**예상 소요 시간: 30분**
+**예상 시간: 30분**
 
 학생들은 단원에서 파악한 정보를 사용하여 Azure Portal 및 AdventureWorks 내에서 보안 기능을 구성한 후 구현합니다.
 
@@ -14,7 +14,7 @@ lab:
 
 **참고:** 이 연습을 진행할 때는 T-SQL 코드를 복사하여 붙여넣어야 합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
-## <a name="configure-azure-sql-database-firewall-rules"></a>Azure SQL Database 방화벽 규칙 구성
+## Azure SQL Database 방화벽 규칙 구성
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
 
@@ -44,7 +44,7 @@ lab:
 
 1. SQL Server Management Studio를 엽니다. 서버에 연결 대화 상자에서 Azure SQL Database 서버의 이름을 붙여넣고 아래 자격 증명으로 로그인합니다.
 
-    - **서버 이름:** &lt;여기에 Azure SQL Database 서버 이름 붙여넣기&gt;
+    - **서버 이름:** &lt;_Azure SQL Database 서버 이름을 여기에 붙여넣습니다._&gt;
     - **인증:** SQL Server 인증
     - **서버 관리자 로그인:** sqladmin
     - **암호:** P@ssw0rd01
@@ -59,7 +59,7 @@ lab:
 
 1. **데이터 계층 애플리케이션 가져오기** 대화 상자의 첫 번째 화면에서 **다음**을 클릭합니다.
 
-1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorksLT.bacpac** 에 있는 .bacpac 파일을 랩 VM의 **C:\LabFiles\Secure Environment** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
+1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorksLT.bacpac**에 있는 .bacpac 파일을 랩 VM의 **C:\LabFiles\Secure Environment** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
 
 1. **가져오기 설정** 화면에서 **찾아보기**를 클릭하고 **C:\LabFiles\Secure Environment**로 이동하여 **AdventureWorksLT.bacpac** 파일을 클릭한 다음, **열기**를 클릭합니다. **데이터 계층 애플리케이션 가져오기** 화면에서 **다음**을 클릭합니다.
 
@@ -84,7 +84,7 @@ lab:
 
     ![자동으로 생성된 휴대폰 설명의 스크린샷](../images/dp-300-module-04-lab-12.png)
 
-1. 텍스트를 쿼리 창에 붙여넣어 다음 T-SQL 쿼리를 실행합니다.
+1. 쿼리 창에 텍스트를 붙여넣어 다음 T-SQL 쿼리를 실행합니다.
     1. **중요:** **000.000.000.00**을 클라이언트 IP 주소로 바꿉니다. **실행**을 클릭하거나 **F5** 키를 누릅니다.
 
     ```sql

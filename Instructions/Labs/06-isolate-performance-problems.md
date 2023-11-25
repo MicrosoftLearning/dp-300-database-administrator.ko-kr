@@ -4,17 +4,17 @@ lab:
   module: Monitor and optimize operational resources in Azure SQL
 ---
 
-# <a name="isolate-performance-problems-through-monitoring"></a>모니터링을 통해 성능 문제 파악
+# 모니터링을 통해 성능 문제 격리
 
-**예상 소요 시간: 30분**
+**예상 시간: 30분**
 
-학생들은 단원에서 파악한 정보를 사용하여 AdventureWorks 내에서 진행되는 디지털 혁신 프로젝트의 결과물을 확인합니다. Azure Portal과 다른 도구를 살펴보며 학생은 도구를 활용하여 성능 관련 문제를 식별하고 해결하는 방법을 결정합니다.
+학생들은 수업에서 얻은 정보를 가져와 AdventureWorks 내에서 디지털 변환 프로젝트에 대한 결과물을 범위로 지정합니다. Azure Portal과 다른 도구를 살펴보며 학생은 도구를 활용하여 성능 관련 문제를 식별하고 해결하는 방법을 결정합니다.
 
 데이터베이스 관리자는 성능 관련 문제를 식별하고 발견된 문제를 해결하는 실행 가능한 솔루션을 제공하도록 고용됩니다. Azure Portal을 사용하여 성능 문제를 식별한 다음 해결하는 방법을 제안해야 합니다.
 
 **참고:** 이 연습을 진행할 때는 T-SQL 코드를 복사하여 붙여넣어야 합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
-## <a name="review-cpu-utilization-in-azure-portal"></a>Azure Portal에서 CPU 사용률 검토
+## Azure Portal에서 CPU 사용률 검토
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.
 
@@ -50,7 +50,7 @@ lab:
 
     **참고:** 이 기능은 미리 보기로 제공됩니다.
 
-1. **암호**에서 **P@ssw0rd01** 을 입력하고 **확인**을 선택합니다.
+1. **암호**에서 **P@ssw0rd01**을 입력하고 **확인**을 선택합니다.
 
     ![쿼리 편집기 연결 속성을 보여 주는 스크린샷](../images/dp-300-module-06-lab-05.png)
 
@@ -93,7 +93,7 @@ lab:
 
     ![평균 집계를 보여 주는 스크린샷](../images/dp-300-module-06-lab-09.png)
 
-## <a name="identify-high-cpu-queries"></a>높은 CPU 쿼리 식별
+## 높은 CPU 쿼리 식별
 
 1. **AdventureWorksLT** 데이터베이스에 대한 블레이드의 **지능형 성능** 섹션에서 **Query Performance Insight** 아이콘을 찾습니다.
 

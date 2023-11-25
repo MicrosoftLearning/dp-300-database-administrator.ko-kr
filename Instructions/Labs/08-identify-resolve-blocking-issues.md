@@ -4,19 +4,19 @@ lab:
   module: Optimize query performance in Azure SQL
 ---
 
-# <a name="identify-and-resolve-blocking-issues"></a>차단 문제 식별 및 해결
+# 차단 문제 식별 및 해결
 
-**예상 시간: 15분**
+**예상 소요 시간:** 15분
 
-학생들은 단원에서 파악한 정보를 사용하여 AdventureWorks 내에서 진행되는 디지털 혁신 프로젝트의 결과물을 확인합니다. Azure Portal과 다른 도구를 살펴보며, 학생은 기본 도구를 활용하여 성능 관련 문제를 식별하고 해결하는 방법을 결정합니다. 마지막으로 학생들은 차단 문제를 적절하게 식별하고 해결할 수 있습니다.
+학생들은 수업에서 얻은 정보를 가져와 AdventureWorks 내에서 디지털 변환 프로젝트에 대한 결과물을 범위로 지정합니다. 학생들은 Azure Portal 및 기타 도구를 검토하여 네이티브 도구를 활용하여 성능 관련 문제를 식별하고 해결하는 방법을 결정합니다. 마지막으로 학생들은 차단 문제를 적절하게 식별하고 해결할 수 있습니다.
 
 데이터베이스 관리자는 성능 관련 문제를 식별하고 발견된 문제를 해결하는 실행 가능한 솔루션을 제공하도록 고용됩니다. 성능 문제를 조사하고 해결 방법을 제안해야 합니다.
 
 **참고:** 이 연습을 진행할 때는 T-SQL 코드를 복사하여 붙여넣어야 합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
-## <a name="restore-a-database"></a>데이터베이스 복원
+## 데이터베이스 복원
 
-1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak** 에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
+1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak**에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
 
     ![그림 03](../images/dp-300-module-07-lab-03.png)
 
@@ -50,7 +50,7 @@ lab:
 
     ![그림 03](../images/dp-300-module-07-lab-05.png)
 
-## <a name="run-blocked-queries-report"></a>차단된 쿼리 실행 보고서
+## 차단된 쿼리 실행 보고서
 
 1. **새 쿼리**를 선택합니다. 다음 T-SQL 코드를 복사하여 쿼리 창에 붙여넣습니다. 이 쿼리를 실행하려면 **실행**을 선택합니다.
 
@@ -178,7 +178,7 @@ lab:
 
     ![그림 08](../images/dp-300-module-08-lab-08.png)
 
-## <a name="enable-read-commit-snapshot-isolation-level"></a>커밋된 읽기 스냅샷 격리 수준을 사용으로 설정
+## 커밋된 읽기 스냅샷 격리 수준을 사용으로 설정
 
 1. SQL Server Management Studio에서 **새 쿼리**를 선택합니다. 다음 T-SQL 코드를 복사하여 쿼리 창에 붙여넣습니다. **실행** 단추를 선택하여 이 쿼리를 실행합니다.
 

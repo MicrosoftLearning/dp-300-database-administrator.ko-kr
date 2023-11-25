@@ -4,19 +4,19 @@ lab:
   module: Monitor and optimize operational resources in Azure SQL
 ---
 
-# <a name="detect-and-correct-fragmentation-issues"></a>조각화 문제 감지 및 수정
+# 조각화 문제 감지 및 수정
 
-**예상 시간: 15분**
+**예상 소요 시간:** 15분
 
-학생들은 단원에서 파악한 정보를 사용하여 AdventureWorks 내에서 진행되는 디지털 혁신 프로젝트의 결과물을 확인합니다. Azure Portal과 다른 도구를 살펴보며, 학생은 기본 도구를 활용하여 성능 관련 문제를 식별하고 해결하는 방법을 결정합니다. 마지막으로 학생은 데이터베이스 내에서 조각화를 식별하고 적절하게 해결하는 단계를 배울 수 있습니다.
+학생들은 수업에서 얻은 정보를 가져와 AdventureWorks 내에서 디지털 변환 프로젝트에 대한 결과물을 범위로 지정합니다. 학생들은 Azure Portal 및 기타 도구를 검토하여 네이티브 도구를 활용하여 성능 관련 문제를 식별하고 해결하는 방법을 결정합니다. 마지막으로 학생은 데이터베이스 내에서 조각화를 식별하고 적절하게 해결하는 단계를 배울 수 있습니다.
 
-데이터베이스 관리자는 성능 관련 문제를 식별하고 발견된 문제를 해결하는 실행 가능한 솔루션을 제공하도록 고용됩니다. AdventureWorks는 10년 이상 소비자 및 유통업체에 자전거와 자전거 부품을 직접 판매해 왔습니다. 최근 이 회사는 고객의 요청을 서비스하는 데 사용되는 제품의 성능 저하를 발견했습니다. SQL 도구를 사용하여 성능 문제를 식별한 다음 해결하는 방법을 제안해야 합니다.
+데이터베이스 관리자는 성능 관련 문제를 식별하고 발견된 문제를 해결하는 실행 가능한 솔루션을 제공하도록 고용됩니다. AdventureWorks는 10년 이상 소비자와 유통업체에 직접 자전거와 자전거 부품을 판매해 왔습니다. 최근 이 회사는 고객의 요청을 서비스하는 데 사용되는 제품의 성능 저하를 발견했습니다. SQL 도구를 사용하여 성능 문제를 식별한 다음 해결하는 방법을 제안해야 합니다.
 
 **참고:** 이 연습을 진행할 때는 T-SQL 코드를 복사하여 붙여넣어야 합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
-## <a name="restore-a-database"></a>데이터베이스 복원
+## 데이터베이스 복원
 
-1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak** 에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
+1. **https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak**에 있는 데이터베이스 백업 파일을 랩 가상 머신의 **C:\LabFiles\Monitor and optimize** 경로에 다운로드합니다(폴더 구조가 없는 경우 새로 만들기).
 
     ![그림 03](../images/dp-300-module-07-lab-03.png)
 
@@ -50,7 +50,7 @@ lab:
 
     ![그림 03](../images/dp-300-module-07-lab-05.png)
 
-## <a name="investigate-index-fragmentation"></a>인덱스 조각화 조사
+## 인덱스 조각화 조사
 
 1. **새 쿼리**를 선택합니다. 다음 T-SQL 코드를 복사하여 쿼리 창에 붙여넣습니다. 이 쿼리를 실행하려면 **실행**을 선택합니다.
 
@@ -129,7 +129,7 @@ lab:
 
     ![그림 03](../images/dp-300-module-07-lab-07.png)
 
-## <a name="rebuild-fragmented-indexes"></a>조각화된 인덱스 다시 빌드
+## 조각화된 인덱스 다시 빌드
 
 1. 다음 T-SQL 코드를 복사하여 쿼리 창에 붙여넣습니다. 이 쿼리를 실행하려면 **실행**을 선택합니다.
 
