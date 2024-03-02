@@ -6,9 +6,11 @@ lab:
 
 # Automation Runbook을 배포하여 자동으로 인덱스 다시 빌드
 
-**예상 시간: 30분**
+**예상 시간:** 30분
 
 데이터베이스 관리의 일상적인 업무를 자동화하는 데 도움을 주는 선임 데이터베이스 관리자로 고용되었습니다. 이 자동화에서는 AdventureWorks용 데이터베이스가 최고 성능으로 계속 작동하고 특정 조건에 따라 경고하는 메서드를 제공하도록 지원합니다. AdventureWorks는 IaaS(Infrastructure as a Service) 및 PaaS(Platform as a Service) 제품 모두에서 SQL Server를 활용합니다.
+
+**참고:** 이러한 연습에서는 T-SQL 코드를 복사하여 붙여넣고 기존 SQL 리소스를 사용하도록 요청할 수 있습니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
 ## Automation 계정 생성
 
@@ -187,7 +189,7 @@ lab:
 
     ![일정 페이지, 일정 추가 선택 스크린샷.](../images/dp-300-module-13-lab-24.png)
 
-1. Runbook**에 일정 연결을 선택합니다**.
+1. **Runbook에 일정 연결**을 선택합니다.
 
     ![Runbook에 일정으로 링크 선택 스크린샷.](../images/dp-300-module-13-lab-25.png)
 

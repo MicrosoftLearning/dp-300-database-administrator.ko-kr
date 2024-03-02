@@ -12,6 +12,8 @@ lab:
 
 Senior Database 관리istrator로 고용되어 데이터베이스 환경의 보안을 보장합니다. 작업은 Azure SQL Database에 중점을 둡니다.
 
+**참고:** 이러한 연습에서는 T-SQL 코드를 복사하여 붙여넣도록 요청하고 기존 SQL 리소스를 사용합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
+
 ## Microsoft Defender for SQL 사용
 
 1. 랩 가상 머신에서 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. 이 랩 가상 머신의 **리소스** 탭에 제공된 Azure **사용자 이름** 및 **암호**를 사용하여 포털에 연결합니다.

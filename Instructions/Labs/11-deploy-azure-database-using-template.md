@@ -6,7 +6,7 @@ lab:
 
 # 템플릿에서 Azure SQL Database 배포
 
-**예상 소요 시간:** 15분
+**예상 시간:** 15분
 
 데이터베이스 관리의 일상적인 작업을 자동화하는 데 도움을 주는 선임 데이터 엔지니어로 고용되었습니다. 이와 같은 자동화를 통해 AdventureWorks용 데이터베이스가 최고의 성능으로 계속 작동하고 특정 조건에 따라 경고를 제공하는 메서드를 제공할 수 있습니다. AdventureWorks는 IaaS(Infrastructure as a Service) 및 PaaS(Platform as a Service) 제품 모두에서 SQL Server를 사용합니다.
 

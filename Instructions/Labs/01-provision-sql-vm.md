@@ -6,7 +6,7 @@ lab:
 
 # Azure 가상 머신에서 SQL Server 프로비저닝
 
-**예상 시간: 30분**
+**예상 시간:** 30분
 
 학생들은 Azure Portal을 살펴보고 이를 사용하여 SQL Server 2019가 설치된 Azure VM을 만듭니다. 그런 다음 원격 데스크톱 프로토콜을 통해 가상 머신에 연결합니다.
 
@@ -113,9 +113,7 @@ AdventureWorks의 데이터베이스 관리자입니다. 개념 증명에서 사
 
     ![그림 26](../images/dp-300-module-01-lab-26.png)
 
-1. Windows 시작 단추를 선택하고 SSMS를 입력합니다. 목록에서 **Microsoft SQL Server Management Studio 18**을 선택합니다.  
-
-    ![그림 34](../images/dp-300-module-01-lab-34.png)
+1. Windows 시작 단추를 선택하고 SSMS를 입력합니다. 목록에서 Microsoft SQL Server Management Studio**를 선택합니다**.  
 
 1. SSMS가 열리면 **서버에 연결** 대화 상자가 기본 인스턴스 이름으로 미리 채워집니다. **연결**을 선택합니다.
 
