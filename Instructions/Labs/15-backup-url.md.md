@@ -6,7 +6,7 @@ lab:
 
 # URL로 백업
 
-**예상 시간: 30분**
+**예상 시간:** 30분
 
 AdventureWorks의 DBA는 Azure의 URL에 데이터베이스를 백업하고 사용자 오류가 발생한 후 Azure Blob 스토리지에서 복원해야 합니다.
 
