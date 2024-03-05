@@ -10,9 +10,9 @@ lab:
 
 학생들은 단원에서 파악한 정보를 사용하여 Azure Portal 및 AdventureWorks 내에서 보안 기능을 구성한 후 구현합니다.
 
-Senior Database 관리istrator로 고용되어 데이터베이스 환경의 보안을 보장합니다. 작업은 Azure SQL Database에 중점을 둡니다.
+선임 데이터베이스 관리자로 고용되어 데이터베이스 환경의 보안을 보장합니다. 작업은 Azure SQL Database에 중점을 둡니다.
 
-**참고:** 이러한 연습에서는 T-SQL 코드를 복사하여 붙여넣도록 요청하고 기존 SQL 리소스를 사용합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
+**참고:** 이러한 연습에서는 T-SQL 코드를 복사하여 붙여넣고 기존 SQL 리소스를 활용하도록 요청합니다. 코드를 실행하기 전에 코드를 올바르게 복사했는지 확인하세요.
 
 ## Microsoft Defender for SQL 사용
 
@@ -42,7 +42,7 @@ Senior Database 관리istrator로 고용되어 데이터베이스 환경의 보�
 
     ![구성 옵션을 선택하는 스크린샷](../images/dp-300-module-05-lab-02.png)
 
-1. **서버 설정** 페이지에서 MICROSOFT DEFENDER FOR SQL**의 **토글 스위치가 ON**으로 **설정되어 있는지 확인합니다.
+1. **서버 설정** 페이지에서 **MICROSOFT DEFENDER FOR SQL**의 설정/해제 스위치가 **켜기**로 설정되어 있음을 확인합니다.
 
 ## 데이터 분류 사용
 
