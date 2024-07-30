@@ -24,7 +24,7 @@ lab:
 
     ![모든 리소스를 선택한 Azure Portal 홈페이지 스크린샷](../images/dp-300-module-03-lab-01.png)
 
-1. Azure SQL Database 서버인 **dp300-lab-xxxxxx**를 선택합니다. 여기서 **xxxxxx**는 임의 문자열입니다. **Active Directory 관리자** 옆에 있는 **구성되지 않음**을 선택합니다.
+1. SQL Database 서버인 **dp300-lab-xxxxxx**를 선택합니다. 여기서 **xxxxxx**는 임의 문자열입니다. 그런 다음 **Active Directory 관리자** 옆에 있는 **구성되지 않음**을 선택합니다.
 
     ![구성되지 않음 선택 스크린샷](../images/dp-300-module-03-lab-02.png)
 
