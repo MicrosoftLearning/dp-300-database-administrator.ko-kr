@@ -12,25 +12,31 @@ lab:
 
 > &#128221; 아래 지침은 Windows 10 컴퓨터용입니다. Linux 또는 MacOS를 사용할 수도 있습니다. 선택한 OS의 랩 지침을 조정해야 할 수도 있습니다.
 
-### Windows 10(OS)
+### Windows 11(OS)
 
-1. Windows 10(버전 2004 이상)을 설치합니다.**
+1. Windows 11 설치.
 
 1. 사용 가능한 모든 업데이트를 적용합니다.
 
 ### Edge
 
-1. [microsoft.com/edge]에서 최신 버전의 Microsoft Edge를 설치합니다.
+1. [https://microsoft.com/edge]에서 최신 버전의 Microsoft Edge를 설치합니다.
 
 ### Git
 
-1. [git-scm.com/downloads]에서 다운로드하여 설치합니다.
+1. [https://git-scm.com/downloads]에서 다운로드하여 설치합니다.
+
+    - 설치 관리자에서 기본 옵션을 사용합니다.
+
+### Azure CLI
+
+1. [https://aka.ms/installazurecliwindows]에서 다운로드하여 설치합니다.
 
     - 설치 관리자에서 기본 옵션을 사용합니다.
 
 ### Visual Studio Code
 
-1. [code.visualstudio.com/download]에서 다운로드하여 설치합니다.
+1. [https://code.visualstudio.com/download]에서 다운로드하여 설치합니다.
 
     - 설치 관리자에서 기본 옵션을 사용합니다.
 
@@ -40,8 +46,10 @@ lab:
 
     - 설치 관리자에서 기본 옵션을 사용합니다.
 
-### Azure Data Studio
+### SQL Server 2022 Developer 버전
 
-1. [https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio]에서 다운로드하여 설치합니다.
+1. [https://www.microsoft.com/en-us/sql-server/sql-server-downloads]에서 다운로드하여 설치합니다.
 
-    - 설치 관리자에서 기본 옵션을 사용합니다.
+    - 설치 관리자에서 기본 옵션을 사용합니다. 이 랩에서는 SQL Server 데이터베이스 엔진만 필요합니다.
+    - 기본 인스턴스를 사용할 수 있습니다.
+    - 기본 인증 모드를 사용할 수 있습니다.
