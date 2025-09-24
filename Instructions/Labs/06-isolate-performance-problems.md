@@ -82,6 +82,10 @@ Azure에 로그인하고 Azure에서 실행 중인 기존 Azure SQL Server 인�
     **참고:** 이 기능은 미리 보기로 제공됩니다.
 
 1. SQL Server 관리 사용자 이름을 선택하고 암호 또는 Microsoft Entra 자격 증명(데이터베이스에 연결하도록 할당된 경우)을 입력합니다.
+    - **서버 이름:** &lt;여기에 Azure SQL Database 서버 이름 붙여넣기&gt;__
+    - **인증:** SQL Server 인증
+    - **서버 관리자 로그인:** 사용자의 Azure SQL Database 서버 관리자 로그인
+    - **암호:** 사용자의 Azure SQL Database 서버 관리자 암호
 
 1. **쿼리 1**에서 다음 쿼리를 입력하고 **실행**을 선택합니다.
 
