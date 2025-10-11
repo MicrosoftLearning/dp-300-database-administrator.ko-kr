@@ -1,12 +1,4 @@
-#README
-
-We've turned off the ability to report issues directly on this repo and do not monitor PRs.
-
-Provide feedback here: https://aka.ms/provide-feedback
-
-Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
-
-# DP-300: Microsoft Azure SQL 솔루션 관리
+# DP-300: Azure SQL을 사용하여 확장성 있는 데이터베이스 솔루션 구현
 
 - **MCT이신가요?** - [MCT를 위한 GitHub 사용자 가이드](https://microsoftlearning.github.io/MCT-User-Guide/)를 살펴보세요.
 

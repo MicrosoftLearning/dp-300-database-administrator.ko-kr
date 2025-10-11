@@ -59,7 +59,7 @@ Azure에 로그인하고 Azure에서 실행 중인 기존 Azure SQL Server 인�
 
 ---
 
-## 지리 복제 사용
+## 지역 복제 사용
 
 1.  랩 가상 머신 또는 로컬 컴퓨터가 제공되지 않은 경우 브라우저 세션을 시작하고 [https://portal.azure.com](https://portal.azure.com/)으로 이동합니다. Azure 자격 증명을 사용하여 Portal에 연결합니다.
 
