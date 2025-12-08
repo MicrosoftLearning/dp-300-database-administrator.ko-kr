@@ -1,5 +1,3 @@
-**⚠️ This GitHub repo will retire on 30th December 2025.** 
-
 # DP-300: Azure SQL을 사용하여 확장성 있는 데이터베이스 솔루션 구현
 
 - **MCT이신가요?** - [MCT를 위한 GitHub 사용자 가이드](https://microsoftlearning.github.io/MCT-User-Guide/)를 살펴보세요.
